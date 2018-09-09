@@ -19,7 +19,7 @@ public class Programa {
 		em.getTransaction().begin();
 		em.persist(p1);
 		em.persist(p2);
-		em.persist(p3);		
+		em.persist(p3);
 		em.getTransaction().commit();
 
 		Pessoa p = em.find(Pessoa.class, 2);
@@ -28,11 +28,10 @@ public class Programa {
 		em.getTransaction().begin();
 		Pessoa pes = em.find(Pessoa.class, 2);
 		em.remove(pes);
-		em.getTransaction().commit();	
-		
+		em.getTransaction().commit();
+
+		System.out.println("Pronto!");
 		em.close();
 		emf.close();
-		
-		System.out.println("Pronto!");
 	}
 }
