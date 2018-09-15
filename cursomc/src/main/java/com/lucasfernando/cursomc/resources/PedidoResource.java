@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lucasfernando.cursomc.domain.Cliente;
-import com.lucasfernando.cursomc.services.ClienteService;
+import com.lucasfernando.cursomc.domain.Pedido;
+import com.lucasfernando.cursomc.services.PedidoService;
 
 @RestController
-@RequestMapping(value = "/clientes")
-public class ClienteResource {
+@RequestMapping(value = "/pedidos")
+public class PedidoResource {
 	@Autowired
-	private ClienteService service;
+	private PedidoService service;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<Cliente>> get() {
-		List<Cliente> lista = service.get();
+	public ResponseEntity<List<Pedido>> get() {
+		List<Pedido> lista = service.get();
 		return ResponseEntity.ok(lista);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Cliente> get(@PathVariable Integer id) {
-		Cliente cliente = service.get(id);
-		return ResponseEntity.ok(cliente);
+	public ResponseEntity<Pedido> get(@PathVariable Integer id) {
+		Pedido pedido = service.get(id);
+		return ResponseEntity.ok(pedido);
 	}
 }
